@@ -540,6 +540,115 @@
             }
         }
 
+
+        /* MOBILE HEADER + COMPACT ANALYTICS FILTER */
+        @media (max-width: 991.98px) {
+            .top-navbar {
+                display: grid;
+                grid-template-columns: auto minmax(0, 1fr);
+                align-items: center;
+                padding: 8px 10px;
+                gap: 8px;
+            }
+            .top-navbar-start {
+                min-width: 0;
+                gap: 6px;
+            }
+            .top-navbar-end {
+                min-width: 0;
+                width: 100%;
+            }
+            .top-navbar-end .dropdown {
+                min-width: 0;
+                width: 100%;
+            }
+            #mobileMenuToggle,
+            #departmentNotificationBtn {
+                width: 42px;
+                height: 42px;
+                min-width: 42px;
+                border-radius: 12px;
+            }
+            #departmentNotificationBtn > span.d-sm-inline {
+                display: none !important;
+            }
+            #rs232Status {
+                height: 42px;
+                display: inline-flex;
+                align-items: center;
+                padding: 0 10px !important;
+                font-size: .78rem;
+                white-space: nowrap;
+            }
+            #userMenuDropdown {
+                min-width: 0;
+                height: 42px;
+                min-height: 42px;
+                padding: 6px 10px;
+                font-size: .84rem;
+                border-radius: 12px;
+            }
+            #activeUserDisplayName {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            #activeUserRoleBadge {
+                display: none;
+            }
+            .analytics-filter-card {
+                padding: 10px !important;
+                border-radius: 12px;
+            }
+            #tab-analytics .analytics-quick-filters {
+                flex-wrap: nowrap !important;
+                overflow-x: auto;
+                padding-bottom: 2px;
+                scrollbar-width: none;
+            }
+            #tab-analytics .analytics-quick-filters::-webkit-scrollbar { display: none; }
+            #tab-analytics .analytics-quick-filters .btn {
+                flex: 0 0 auto;
+                padding: .32rem .62rem;
+                font-size: .78rem;
+            }
+            #tab-analytics .analytics-filter-card .form-label {
+                font-size: .76rem;
+                margin-bottom: 3px !important;
+            }
+            #tab-analytics .analytics-filter-card .form-control {
+                min-height: 32px;
+                padding: .3rem .5rem;
+                font-size: .8rem;
+            }
+            #tab-analytics .analytics-current-range {
+                font-size: .72rem;
+                padding: .35rem .5rem;
+            }
+            #tab-analytics .analytics-filter-card .btn-primary {
+                padding: .34rem .65rem;
+                font-size: .78rem;
+            }
+        }
+        @media (max-width: 575.98px) {
+            .top-navbar {
+                grid-template-columns: 1fr;
+            }
+            .top-navbar-start,
+            .top-navbar-end {
+                width: 100%;
+            }
+            .top-navbar-start {
+                display: grid;
+                grid-template-columns: 42px 1fr 42px;
+            }
+            #rs232Status { justify-content: center; }
+            #userMenuDropdown { width: 100%; }
+            #roleTitleHeader {
+                font-size: 1.45rem;
+            }
+        }
+
         @media print {
             body * { visibility: hidden; }
             #printableArea, #printableArea *, #printableForestManifest, #printableForestManifest *, #printablePriceSheet, #printablePriceSheet * { visibility: visible; }
@@ -1221,17 +1330,10 @@
 </div>
 <!-- TAB 2: UPGRADED DASHBOARD & ANALYTICS -->
 <div class="tab-pane-custom d-none" id="tab-analytics">
-<div class="d-flex justify-content-between align-items-center mb-3">
-<div>
-<h4 class="fw-bold mb-0 text-primary"><i class="bi bi-bar-chart-line-fill me-2 text-warning"></i>Thống Kê &amp; Biểu Đồ</h4>
-
-</div>
-<button class="btn btn-sm btn-outline-primary" onclick="renderAnalyticsDashboard()"><i class="bi bi-arrow-clockwise me-1"></i> Cập Nhật Dashboard</button>
-</div>
-<div class="card card-custom p-3 mb-3 analytics-filter-card">
-<div class="row g-3 align-items-end">
+<div class="card card-custom p-2 mb-3 analytics-filter-card">
+<div class="row g-2 align-items-end">
 <div class="col-lg-7">
-<label class="form-label fw-bold text-primary mb-2"><i class="bi bi-funnel-fill me-1"></i>Thống kê theo kỳ</label>
+<label class="form-label fw-bold text-primary mb-1 small"><i class="bi bi-funnel-fill me-1"></i>Thống kê theo kỳ</label>
 <div class="d-flex flex-wrap analytics-quick-filters" role="group" aria-label="Bộ lọc thống kê">
 <button class="btn btn-outline-primary btn-sm" id="analyticsModeDay" onclick="setAnalyticsRangeMode('day')" type="button">Ngày</button>
 <button class="btn btn-outline-primary btn-sm" id="analyticsModeWeek" onclick="setAnalyticsRangeMode('week')" type="button">Tuần</button>
