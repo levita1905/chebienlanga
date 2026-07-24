@@ -908,6 +908,64 @@
             }
         }
 
+
+        /* NHẬT KÝ PHIẾU: ĐƯA THAO TÁC LÊN CỘT ĐẦU VÀ LÀM NỔI BẬT */
+        #vouchersHistoryTable .voucher-actions-head,
+        #vouchersHistoryTable .voucher-actions-cell {
+            position: sticky;
+            left: 0;
+            z-index: 3;
+            min-width: 245px;
+            width: 245px;
+            background: #eff6ff;
+            border-right: 2px solid #93c5fd !important;
+            box-shadow: 5px 0 12px rgba(15, 23, 42, 0.08);
+        }
+        #vouchersHistoryTable .voucher-actions-head {
+            z-index: 5;
+            color: #1e3a8a;
+            background: #dbeafe !important;
+            text-transform: uppercase;
+            letter-spacing: .25px;
+        }
+        #vouchersHistoryTable tbody tr:hover .voucher-actions-cell {
+            background: #dbeafe !important;
+        }
+        .voucher-doc-actions {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+        .voucher-doc-actions .journal-doc-action {
+            min-height: 34px;
+            padding: .42rem .68rem;
+            border-width: 2px;
+            border-radius: 9px;
+            font-weight: 800;
+            box-shadow: 0 3px 8px rgba(15, 23, 42, .12);
+            transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+        }
+        .voucher-doc-actions .journal-doc-action:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 13px rgba(15, 23, 42, .18);
+            filter: brightness(.98);
+        }
+        .voucher-doc-actions .journal-doc-action:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(15, 23, 42, .12);
+        }
+        @media (max-width: 767.98px) {
+            #vouchersHistoryTable .voucher-actions-head,
+            #vouchersHistoryTable .voucher-actions-cell {
+                min-width: 205px;
+                width: 205px;
+            }
+            .voucher-doc-actions .journal-doc-action {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1337,6 +1395,7 @@
 <table class="table table-bordered table-hover align-middle text-nowrap" id="vouchersHistoryTable">
 <thead class="table-light">
 <tr>
+<th class="voucher-actions-head">Chứng Từ / Thao Tác</th>
 <th>Số Chứng Từ</th>
 <th>Loại Phiếu</th>
 <th>Biển Số Xe</th>
@@ -1348,7 +1407,6 @@
 <th>Cân Thực Tế Khách (kg)</th>
 <th>Thành Tiền (đ)</th>
 <th>Trạng Thái</th>
-<th>Chứng Từ / Thao Tác</th>
 </tr>
 </thead>
 <tbody id="vouchersTableBody">
@@ -6488,6 +6546,7 @@ body.journal-preview-lock { overflow: hidden !important; }
                 : '<span class="badge bg-success"><i class="bi bi-box-arrow-in-down me-1"></i>Nhập Kho (PNK)</span>';
             const money = canTT99 ? (ticket.totalMoney ? formatNumber(ticket.totalMoney) + ' đ' : 'Chờ hoàn tất') : '*** đ';
             return `<tr class="ticket-detail-row" onclick="return window.openJournalTicketDetails(${idArg}, event)" title="Bấm vào dòng để xem chi tiết quá trình xử lý">
+                <td class="voucher-actions-cell"><div class="voucher-doc-actions">${actions.join('') || '<span class="text-muted small">Chưa có thao tác</span>'}</div></td>
                 <td><strong class="text-primary">${escapeHtml(ticket.id)}</strong>${ticket.warehouseEntryOrderNo ? `<br><small class="text-muted">${escapeHtml(ticket.warehouseEntryOrderNo)}</small>` : ''}</td>
                 <td>${typeBadge}</td>
                 <td><strong>${escapeHtml(ticket.plate || '-')}</strong></td>
@@ -6499,7 +6558,6 @@ body.journal-preview-lock { overflow: hidden !important; }
                 <td>${ticket.custNetWeight ? formatNumber(ticket.custNetWeight) + ' kg' : '<span class="text-muted">-</span>'}</td>
                 <td><strong>${money}</strong></td>
                 <td><span class="badge ${status[1]}">${escapeHtml(status[0])}</span></td>
-                <td><div class="voucher-doc-actions">${actions.join('') || '<span class="text-muted small">Chưa có thao tác</span>'}</div></td>
             </tr>`;
         }).join('');
     }
