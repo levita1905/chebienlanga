@@ -137,6 +137,21 @@
         }
         #actionCardsContainer .action-card-btn p {
             flex-grow: 1;
+            margin-bottom: 0;
+        }
+        #roleSubHeader,
+        #tab-analytics > .d-flex .text-muted.small,
+        #tab-analytics .analytics-filter-card .form-text {
+            display: none;
+        }
+        .action-card-btn p {
+            display: none;
+        }
+        .action-card-btn {
+            min-height: 156px;
+        }
+        .action-card-btn h5 {
+            margin-bottom: 14px !important;
         }
         #actionCardsContainer .action-card-btn h5,
         #actionCardsContainer .action-card-btn p,
@@ -313,12 +328,216 @@
             padding: 14px;
         }
 
+        .top-navbar-start,
+        .top-navbar-end {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+        #userMenuDropdown {
+            border-radius: 14px;
+            padding: 9px 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        #departmentNotificationBtn {
+            border-radius: 14px;
+        }
+        #mobileMenuToggle {
+            border-radius: 14px;
+            width: 46px;
+            height: 46px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+        #rs232Status {
+            border-radius: 999px;
+            font-weight: 700;
+        }
+
         @media (max-width: 991.98px) {
             .sidebar { margin-left: -270px; }
             .sidebar.show-mobile { margin-left: 0; }
             .main-content, .top-navbar { margin-left: 0 !important; }
-            .top-navbar { padding: 10px 16px; }
+            .top-navbar {
+                padding: 12px 14px;
+                gap: 10px;
+                position: sticky;
+                top: 0;
+                background: rgba(255,255,255,0.96);
+                backdrop-filter: blur(12px);
+            }
+            .top-navbar-start {
+                gap: 8px;
+                flex: 0 0 auto;
+            }
+            .top-navbar-end {
+                flex: 1 1 auto;
+                justify-content: flex-end;
+            }
+            .top-navbar-end .dropdown {
+                width: 100%;
+            }
+            #userMenuDropdown {
+                width: 100%;
+                justify-content: flex-start;
+                min-height: 46px;
+                font-size: 0.92rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            #departmentNotificationBtn {
+                width: 46px;
+                height: 46px;
+                padding: 0;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+            #departmentNotificationBtn .bi {
+                margin-right: 0 !important;
+            }
+            #rs232Status {
+                padding: 0.55rem 0.8rem !important;
+                font-size: 0.84rem;
+                line-height: 1;
+            }
+            #roleTitleHeader {
+                font-size: 1.8rem;
+                line-height: 1.08;
+                margin-bottom: 0;
+            }
+            #roleSubHeader,
+            .action-card-btn p,
+            #tab-analytics > .d-flex .text-muted.small,
+            #tab-analytics .analytics-filter-card .form-text {
+                display: none !important;
+            }
+            .action-card-btn {
+                min-height: 150px;
+                padding: 18px;
+            }
+            .action-card-btn h5 {
+                margin-top: 2px;
+                font-size: 1.15rem !important;
+                line-height: 1.25;
+            }
             .main-content { padding: 16px; }
+        }
+
+        .ops-log-card {
+            padding: 12px 14px !important;
+        }
+        .ops-log-toolbar {
+            margin-bottom: 10px !important;
+        }
+        .ops-log-toolbar h5 {
+            font-size: 1rem;
+        }
+        .ops-log-actions .btn {
+            border-radius: 10px;
+            padding: 0.38rem 0.66rem;
+        }
+        .ops-log-filter {
+            padding: 10px 12px;
+            margin-bottom: 10px !important;
+        }
+        .ops-log-filter .form-label {
+            font-size: 0.76rem;
+            margin-bottom: 0.24rem !important;
+        }
+        .ops-log-filter .form-control,
+        .ops-log-filter .btn {
+            min-height: 34px;
+        }
+        .ops-log-table-wrap {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: auto;
+        }
+        #opsRealtimeTable {
+            margin-bottom: 0;
+        }
+        #opsRealtimeTable thead th {
+            background: #f8fafc;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #334155;
+            white-space: nowrap;
+            padding: 0.58rem 0.52rem;
+            border-bottom-width: 1px;
+        }
+        #opsRealtimeTable tbody td {
+            padding: 0.48rem 0.52rem;
+            font-size: 0.88rem;
+            line-height: 1.15;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+        #opsRealtimeTable tbody tr {
+            border-bottom: 1px solid #eef2f7;
+        }
+        #opsRealtimeTable tbody tr:last-child {
+            border-bottom: 0;
+        }
+        #opsRealtimeTable .badge {
+            font-size: 0.68rem;
+            padding: 0.3rem 0.42rem;
+            border-radius: 999px;
+        }
+        #opsRealtimeTable .btn.btn-sm {
+            padding: 0.24rem 0.45rem;
+            font-size: 0.72rem;
+            line-height: 1.05;
+            border-radius: 8px;
+        }
+        #opsRealtimeTable .action-stack {
+            display: flex;
+            gap: 0.28rem;
+            flex-wrap: wrap;
+        }
+        @media (max-width: 991.98px) {
+            .ops-log-card {
+                padding: 10px !important;
+            }
+            .ops-log-toolbar {
+                align-items: flex-start !important;
+                gap: 10px !important;
+            }
+            .ops-log-toolbar h5 {
+                font-size: 0.94rem;
+                line-height: 1.25;
+            }
+            .ops-log-actions {
+                width: 100%;
+            }
+            .ops-log-actions .btn {
+                flex: 1 1 auto;
+            }
+            .ops-log-filter {
+                padding: 9px;
+            }
+            #opsRealtimeTable thead th {
+                font-size: 0.74rem;
+                padding: 0.5rem 0.44rem;
+            }
+            #opsRealtimeTable tbody td {
+                font-size: 0.82rem;
+                padding: 0.42rem 0.44rem;
+            }
+            #opsRealtimeTable .badge {
+                font-size: 0.64rem;
+                padding: 0.26rem 0.38rem;
+            }
+            #opsRealtimeTable .btn.btn-sm {
+                padding: 0.22rem 0.4rem;
+                font-size: 0.68rem;
+            }
         }
 
         @media print {
@@ -774,8 +993,8 @@
 </div>
 <!-- Top Navbar -->
 <div class="top-navbar no-print">
-<div class="d-flex align-items-center gap-2 gap-md-3">
-<button class="btn btn-dark d-lg-none" onclick="toggleMobileSidebar()">
+<div class="top-navbar-start">
+<button class="btn btn-dark d-lg-none" id="mobileMenuToggle" onclick="toggleMobileSidebar()">
 <i class="bi bi-list fs-5"></i>
 </button>
 <span class="badge bg-success-subtle text-success border border-success px-2 py-2 d-none d-sm-inline-block" id="rs232Status">
@@ -787,7 +1006,7 @@
 </button>
 </div>
 <!-- Logged-in User Profile & Quick Switcher -->
-<div class="d-flex align-items-center gap-2">
+<div class="top-navbar-end">
 <div class="dropdown">
 <button class="btn btn-outline-dark btn-sm dropdown-toggle fw-bold" data-bs-toggle="dropdown" id="userMenuDropdown" type="button">
 <i class="bi bi-person-circle text-primary me-1"></i>
@@ -812,7 +1031,7 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
 <div>
 <h4 class="fw-bold mb-1" id="roleTitleHeader">Trung Tâm Thao Tác Trạm Cân</h4>
-<span class="text-muted small d-none d-sm-block" id="roleSubHeader">Quy trình cân gỗ nhập nguyên liệu &amp; Xuất bán dăm gỗ theo thực tế nhà máy.</span>
+<span class="text-muted small d-none d-sm-block" id="roleSubHeader"></span>
 </div>
 <span class="badge bg-light text-dark border px-3 py-2"><i class="bi bi-calendar3 me-1"></i><strong id="currentDateStr">24/07/2026</strong></span>
 </div>
@@ -826,7 +1045,7 @@
 <i class="bi bi-truck-front-fill"></i>
 </div>
 <h5 class="fw-bold mb-1 fs-6 fs-md-5">Cân Xe Nhập (2 Lần Cân)</h5>
-<p class="mb-0 opacity-75 small">Lần 1: cân xe có gỗ vào → Lần 2: cân xe không ra</p>
+
 <span class="badge bg-light text-primary mt-2"><i class="bi bi-shield-check me-1"></i>Bảo vệ / Trạm cân</span>
 </button>
 </div>
@@ -839,7 +1058,7 @@
 <i class="bi bi-moisture"></i>
 </div>
 <h5 class="fw-bold mb-1 fs-6 fs-md-5">Đo Độ Ẩm Gỗ Nhập (%)</h5>
-<p class="mb-0 opacity-75 small">Nhập chỉ số độ ẩm sau khi xe đã cân lần 1</p>
+
 <span class="badge bg-dark text-warning mt-2"><i class="bi bi-moisture me-1"></i>Nhân viên Xưởng</span>
 </button>
 </div>
@@ -850,7 +1069,7 @@
 <span class="badge bg-warning text-dark" id="badgeAccountingRequestCount">0 yêu cầu</span>
 <div class="icon-box bg-white text-secondary"><i class="bi bi-bell-fill"></i></div>
 <h5 class="fw-bold mb-1 fs-6 fs-md-5">KTTC: Yêu Cầu Nhập Kho</h5>
-<p class="mb-0 opacity-75 small">Kiểm tra đủ 2 lần cân, độ ẩm và khởi tạo thủ tục nhập kho</p>
+
 <span class="badge bg-light text-secondary mt-2"><i class="bi bi-calculator me-1"></i>Phòng KTTC</span>
 </button>
 </div>
@@ -862,7 +1081,7 @@
 <i class="bi bi-file-earmark-text-fill"></i>
 </div>
 <h5 class="fw-bold mb-1 fs-6 fs-md-5">A. Cân Xuất Hàng (2 Lần Cân)</h5>
-<p class="mb-0 opacity-75 small">A1: cân xe rỗng vào → A2: cân xe có hàng ra &amp; in bảng kê</p>
+
 <span class="badge bg-warning text-dark mt-2">Bảo vệ / Trạm cân</span>
 </button>
 </div>
@@ -874,7 +1093,7 @@
 <i class="bi bi-calculator-fill"></i>
 </div>
 <h5 class="fw-bold mb-1 fs-6 fs-md-5">B. Chốt Cân/Ẩm Khách &amp; Ra PXK</h5>
-<p class="mb-0 opacity-75 small">Nhập số cân &amp; độ ẩm thực tế tại khách để chốt PXK</p>
+
 <span class="badge bg-light text-danger mt-2"><i class="bi bi-calculator me-1"></i>Phòng KTTC</span>
 </button>
 </div>
@@ -885,21 +1104,21 @@
 <i class="bi bi-tags-fill"></i>
 </div>
 <h5 class="fw-bold mb-1 fs-6 fs-md-5">Quản Lý Đợt Đơn Giá (G1-Gn)</h5>
-<p class="mb-0 opacity-75 small">Tạo &amp; duyệt ma trận đơn giá theo độ ẩm (20-60%)</p>
+
 <span class="badge bg-light text-info mt-2"><i class="bi bi-calculator me-1"></i>KTTC / Xưởng</span>
 </button>
 </div>
 </div>
 <!-- LOG TABLE WITH DATE RANGE FILTER & PERMISSION-BASED EDIT/DELETE -->
-<div class="card card-custom p-3 p-md-4">
-<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+<div class="card card-custom ops-log-card">
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 ops-log-toolbar">
 <h5 class="fw-bold mb-0 fs-6 fs-md-5"><i class="bi bi-journal-text me-2 text-primary"></i>Sổ Nhật Ký Cân Real-time &amp; Trạng Thái Đối Soát Khách Hàng</h5>
-<div class="d-flex gap-2">
+<div class="d-flex gap-2 ops-log-actions">
 <button class="btn btn-sm btn-success fw-bold" onclick="exportOpsTableToExcel()"><i class="bi bi-file-earmark-excel-fill me-1"></i> Xuất Excel</button>
 <button class="btn btn-sm btn-outline-primary" onclick="renderAllData()"><i class="bi bi-arrow-clockwise me-1"></i> Làm mới</button>
 </div>
 </div>
-<div class="filter-panel mb-3">
+<div class="filter-panel ops-log-filter">
 <div class="row g-2 align-items-end">
 <div class="col-12 col-md-3">
 <label class="form-label mb-1 fw-semibold small"><i class="bi bi-calendar-event me-1"></i>Từ Ngày:</label>
@@ -919,8 +1138,8 @@
 </div>
 </div>
 </div>
-<div class="table-responsive">
-<table class="table table-hover align-middle text-nowrap" id="opsRealtimeTable">
+<div class="table-responsive ops-log-table-wrap">
+<table class="table table-sm table-hover align-middle text-nowrap" id="opsRealtimeTable">
 <thead class="table-light">
 <tr>
 <th>Mã Phiếu</th>
@@ -947,7 +1166,7 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
 <div>
 <h4 class="fw-bold mb-0 text-primary"><i class="bi bi-bar-chart-line-fill me-2 text-warning"></i>Thống Kê &amp; Biểu Đồ</h4>
-<p class="text-muted mb-0 small">Tổng hợp nhanh sản lượng, khách hàng, xe vận tải, nhập - xuất và tồn kho dưới dạng biểu đồ trực quan.</p>
+
 </div>
 <button class="btn btn-sm btn-outline-primary" onclick="renderAnalyticsDashboard()"><i class="bi bi-arrow-clockwise me-1"></i> Cập Nhật Dashboard</button>
 </div>
@@ -962,7 +1181,7 @@
 <button class="btn btn-outline-primary btn-sm" id="analyticsModeYear" onclick="setAnalyticsRangeMode('year')" type="button">Năm</button>
 <button class="btn btn-outline-primary btn-sm" id="analyticsModeCustom" onclick="setAnalyticsRangeMode('custom')" type="button">Từ ngày đến ngày</button>
 </div>
-<div class="form-text">Bộ lọc này áp dụng cho toàn bộ chỉ số nhập / xuất / tồn và các biểu đồ phía dưới.</div>
+
 </div>
 <div class="col-lg-5">
 <div class="row g-2 align-items-end">
@@ -3060,6 +3279,29 @@
             renderOpsTable();
         }
 
+        function hasCompletedSecondWeigh(ticket) {
+            if (!ticket) return false;
+            return ['WAITING_ACCOUNTING_ENTRY', 'ACCOUNTING_IN_PROGRESS', 'OUTBOUND_PENDING_CUSTOMER', 'COMPLETED'].includes(ticket.status);
+        }
+
+        function handleWorkflowEdit(ticketId, evt) {
+            if (evt) {
+                evt.preventDefault();
+                evt.stopPropagation();
+            }
+            editWorkflowTicket(ticketId);
+            return false;
+        }
+
+        function handleWorkflowDelete(ticketId, evt) {
+            if (evt) {
+                evt.preventDefault();
+                evt.stopPropagation();
+            }
+            deleteWorkflowTicket(ticketId);
+            return false;
+        }
+
         function renderOpsTable() {
             let rolePerm = state.permissions[state.currentUser ? state.currentUser.role : 'giamdoc'];
             let today = getTodayIsoDate();
@@ -3130,20 +3372,14 @@
                 if (t.isOutbound && t.status !== 'OUTBOUND_TARE_CAPTURED') {
                     actionBtns.push(`<button class="btn btn-sm btn-outline-success" onclick="viewForestManifestReport('${t.id}')" title="In Bảng Kê Lâm Sản"><i class="bi bi-tree-fill"></i> Bảng kê LS</button>`);
                 }
-                if (t.status === 'COMPLETED' && rolePerm.canTT99) {
-                    actionBtns.push(`<button class="btn btn-sm btn-outline-primary" onclick="viewTT99Report('${t.id}')"><i class="bi bi-printer"></i> In TT99</button>`);
-                }
                 if (t.status === 'OUTBOUND_TARE_CAPTURED' && rolePerm.canOutbound) {
                     actionBtns.push(`<button class="btn btn-sm btn-warning fw-bold" onclick="openOutboundModal(); setTimeout(() => selectOutboundTareTarget('${t.id}'), 250)"><i class="bi bi-truck"></i> Cân xe ra</button>`);
                 }
-                if (t.status === 'OUTBOUND_PENDING_CUSTOMER' && rolePerm.canCustomerFinal) {
-                    actionBtns.push(`<button class="btn btn-sm btn-danger fw-bold" onclick="openOutboundFinalizeModal()"><i class="bi bi-calculator"></i> Chốt Cân/Ẩm</button>`);
-                }
                 if (rolePerm.canEditLog) {
-                    actionBtns.push(`<button class="btn btn-sm btn-outline-secondary" onclick="editWorkflowTicket('${t.id}')"><i class="bi bi-pencil-square"></i> Sửa</button>`);
+                    actionBtns.push(`<button type="button" class="btn btn-sm btn-outline-secondary" onclick="return handleWorkflowEdit('${t.id}', event)"><i class="bi bi-pencil-square"></i> Sửa</button>`);
                 }
-                if (rolePerm.canDeleteLog) {
-                    actionBtns.push(`<button class="btn btn-sm btn-outline-danger" onclick="deleteWorkflowTicket('${t.id}')"><i class="bi bi-trash"></i> Xóa</button>`);
+                if (rolePerm.canDeleteLog && !hasCompletedSecondWeigh(t)) {
+                    actionBtns.push(`<button type="button" class="btn btn-sm btn-outline-danger" onclick="return handleWorkflowDelete('${t.id}', event)"><i class="bi bi-trash"></i> Xóa</button>`);
                 }
                 if (!actionBtns.length) actionBtns.push('<span class="text-muted small">Không có thao tác</span>');
 
@@ -3160,7 +3396,7 @@
                         <td>${custDetailText}</td>
                         <td><strong class="text-success">${dryNetText}</strong></td>
                         <td><span class="badge ${badgeClass}">${statusTxt}</span></td>
-                        <td><div class="d-flex gap-1 flex-wrap">${actionBtns.join('')}</div></td>
+                        <td><div class="action-stack">${actionBtns.join('')}</div></td>
                     </tr>
                 `;
             });
@@ -3281,9 +3517,11 @@
                 alert('Không tìm thấy phiếu cần xóa.');
                 return;
             }
-            const confirmMsg = ticket.status === 'COMPLETED'
-                ? `Bạn có chắc muốn xóa phiếu ${ticket.id} đã hoàn thành? Dữ liệu sẽ bị loại khỏi nhật ký thao tác ngày.`
-                : `Bạn có chắc muốn hủy / xóa lệnh ${ticket.id}? Thao tác này dùng cho trường hợp nhập sai hoặc hủy lệnh.`;
+            if (hasCompletedSecondWeigh(ticket)) {
+                alert(`Phiếu ${ticket.id} đã hoàn thành chu trình cân lần 2 nên không được phép xóa.`);
+                return;
+            }
+            const confirmMsg = `Bạn có chắc muốn hủy / xóa lệnh ${ticket.id}? Thao tác này dùng cho trường hợp nhập sai hoặc hủy lệnh.`;
             if (!confirm(confirmMsg)) return;
             state.tickets = state.tickets.filter(t => t.id !== ticketId);
             saveStore();
